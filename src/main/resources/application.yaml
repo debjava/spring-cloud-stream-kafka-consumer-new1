@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+          #brokers: rh8amq01:9092,rh8amq02:9092,rh8amq03:9092
+          auto-create-topics: true
+          configuration:
+            auto.offset.reset: latest
+      bindings:
+        emp-in:
+          destination: greetings-sample
+          group: emp-in-group
+          contentType: application/json
